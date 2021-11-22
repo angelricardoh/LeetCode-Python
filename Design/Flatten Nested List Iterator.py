@@ -40,14 +40,14 @@ class NestedIterator:
             self.flatten(item, [])
         
     def flatten(self, item, flatten_list):
-        if len(item._list) != 0:
+        if len(item.getList()) != 0:
             nested_list = []
             for element in item._list:
                 self.flatten(element, [])
         else:
-            if item._integer is not None:
-                self.flatten_list.append(item._integer)
-            return item._integer
+            if item.getInteger() is not None:
+                self.flatten_list.append(item.getInteger())
+            return item.getInteger()
     
     def next(self) -> int:
         if self.index >= len(self.flatten_list):
